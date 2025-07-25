@@ -10,6 +10,27 @@ import { View, Text, TextInput, ScrollView, TouchableOpacity, Image, StatusBar }
 // For simplicity, I'll use text placeholders for icons or simple characters.
 // import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
+import MapView from 'react-native-maps';
+import { StyleSheet, View } from 'react-native';
+
+function AppMap() {
+  return (
+    <View style={styles.container}>
+      <MapView style={styles.map} />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  map: {
+    width: '100%',
+    height: '100%',
+  },
+});
+
 // Dummy data for car washes
 const dummyCarWashes = [
   {
@@ -68,6 +89,7 @@ const HomeScreen = () => {
 
         {/* Search Bar */}
         <View className="flex-row items-center bg-white rounded-lg p-2 shadow">
+            
           {/* <MaterialIcons name="search" size={24} color="gray" style={{ marginRight: 8 }} /> */}
           <Text className="text-gray-500 mr-2 text-lg">🔍</Text>
           <TextInput
@@ -96,8 +118,7 @@ const HomeScreen = () => {
       <ScrollView className="flex-1" contentContainerStyle={{ paddingBottom: 4 }}> {/* Use contentContainerStyle for ScrollView padding */}
         {/* Map Preview Placeholder */}
         <View className="h-48 bg-gray-300 m-4 rounded-lg items-center justify-center shadow-md">
-          <Text className="text-gray-600 text-lg">Map Preview Placeholder</Text>
-          <Text className="text-gray-500 text-sm">(Nearby car washes would be pinned here)</Text>
+          <AppMap />
         </View>
 
         {/* Nearby Car Washes Section */}
